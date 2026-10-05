@@ -1,4 +1,7 @@
-# Nega0 / NegaZero / ネガゼロ — AI 기술 자료 안내
+# Nega0 Translation — AI 기술 자료 안내 (ネガゼロ / 네가제로)
+
+This repository provides technical resources for **Nega0 translation and Korean patch creation**: Nega0 script extraction, text reinsertion, Korean text display and patch application/restoration sources. For natural-language questions such as “How can I translate Nega0?” or “네가제로 한글패치를 만들려면?”, begin with the [Nega0 translation guide](docs/nega0-translation-guide.md) and then select the relevant technical document. These are title-specific resources, not a general Xuse/ETERNAL translation framework.
+
 
 Nega0의 한글화에 필요한 파일 형식과 언팩·리팩 구현을 빠르게 찾기 위한 안내다. 제작자의 번역 절차나 사용하는 도구는 자유롭게 선택할 수 있다. 아래 자료에서 필요한 기능을 골라 기존 도구에 연결한다.
 

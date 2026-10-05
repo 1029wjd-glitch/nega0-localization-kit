@@ -1,47 +1,63 @@
-# Nega0 / NegaZero / ネガゼロ · 네가제로 언팩·리팩 및 한글화 기술 자료
+# Nega0 (ネガゼロ / 네가제로) Translation Tools
 
-네가제로(Nega0 / NegaZero) 한글패치를 새로 제작하는 사람과 그 작업을 돕는 AI를 위한 **분석 기록과 재사용 가능한 소스 코드**입니다. MIKO/WAG 아카이브, NORI/BINF 문자열 재주입, CP932 기반 한글 표시, 한국어 로케일 호환성, 적용·복원 프로그램의 구현을 모았습니다.
+Tools and technical documentation for **Nega0 translation**, including Nega0 script extraction, translated text reinsertion and Korean patch creation. The game is also referred to as NegaZero or Nega Zero.
 
-**Nega0, NegaZero, Nega Zero, ネガゼロ, 네가제로**의 언팩(unpack / extract), 리팩(repack / rebuild), 텍스트 재삽입(text reinjection), 한글화(Korean localization / Korean translation patch)를 위한 기술 자료입니다. `.arc` MIKO, `.wag` WAG@, NORI script, BINF table, PNG ORGN trailer를 다룹니다.
+이 저장소는 **Nega0(네가제로 / ネガゼロ) 번역과 한글패치 제작**을 위한 기술 자료입니다. 네가제로 스크립트 추출, 번역문 재삽입, 한글 표시와 한국어 로케일 문제 해결에 필요한 분석 기록과 소스 코드를 제공합니다.
 
-## English overview — resource unpacking and repacking
+ネガゼロの翻訳・韓国語パッチ制作に向けた技術資料です。Nega0のスクリプト抽出、翻訳テキストの再挿入、文字表示とロケールの問題を扱います。
 
-This repository documents **Nega0 / NegaZero / ネガゼロ** resource formats and provides reusable Python unpacking/repacking code, text reinjection helpers, and Windows Korean localization runtime sources. It covers MIKO `.arc` archives, WAG@ `.wag` image containers, NORI script string pools, BINF typed text tables, CRC16 updates, positional XOR encoding, PNG ORGN origin trailers, CP932 private-use character mapping, font metrics, and Japanese filename collation on Korean Windows.
+## What is this repository? · Nega0 번역에 어떻게 도움이 되나요?
 
-For **Nega0 archive extraction**, start with [formats.py](formats.py), [unpack.py](unpack.py), and the [format reference](docs/formats.md). For **NegaZero archive rebuilding and translated text insertion**, use [reinject.py](repack/reinject.py), [binf_codec.py](repack/binf_codec.py), and the [repacking input contract](docs/repacking.md). For **Korean locale crashes caused by archive filename binary search**, see the [collation diagnosis and fix](docs/locale-crash.md). Most detailed notes are in Korean; code identifiers, format signatures, offsets and the [version profile](docs/version-profile.json) are directly inspectable.
+If you want to translate Nega0 or create a Nega0 Korean patch, start with the [Nega0 translation guide](docs/nega0-translation-guide.md). It connects text extraction, your own translation method, text reinsertion and patch packaging to the relevant implementation and known issues.
 
-The verified executable is **NegaZero.exe 1.0.1.0 (x86 PE32)**. Check its SHA-256 before reusing executable offsets. Game assets, translated dialogue and ready-made patch binaries are not included. The techniques can be connected to your own translation workflow.
+**Nega0 한글패치를 새로 제작하는 사람과 그 작업을 돕는 AI**가 파일 형식을 처음부터 다시 추측하지 않도록 정리한 제작용 자료입니다. 자동 번역 서비스나 바로 설치하는 완성 한글패치가 아닙니다. 게임 본체·원본 리소스·번역 대사·편집 이미지·폰트·완성 패치 바이너리는 포함하지 않습니다.
 
-## 기능별 검색어와 자료
+## Nega0 Translation Workflow · 기술 자료 활용 순서
 
-| 필요한 기능 / 검색에 사용할 표현 | 바로 읽을 자료 |
+다음은 기능을 연결하는 예시입니다. 번역 도구·모델·수작업 여부와 제작자의 작업 절차는 자유롭게 선택합니다.
+
+1. **Extract Nega0 files and scenario text.** [unpack.py](unpack.py)로 작은 표본을 확인하고, 필요한 데이터를 추출합니다. [Nega0 파일 형식](docs/formats.md)에서 MIKO/WAG 아카이브와 NORI/BINF 문자열 구조를 확인합니다.
+2. **Translate Nega0 text using your own method.** 원위치 ID·원문 해시와 번역문 연결을 유지하고 제어문자·내부 조회 키를 보존합니다. 추출 후보 중 구조 필드가 아닌 항목은 구별합니다.
+3. **Reinsert translated text into Nega0.** [재삽입 입력 연결](docs/repacking.md), [reinject.py](repack/reinject.py), [binf_codec.py](repack/binf_codec.py)로 길이·포인터·CRC와 비대상 데이터를 보존합니다. 제공된 리팩 함수는 제작자의 도구에 연결하는 API이며 완성된 일괄 빌더는 아닙니다.
+4. **Prepare Korean display and a Nega0 translation patch.** [한글 인코딩·폰트](docs/display.md), [이미지 처리](docs/images-and-screen.md), [적용·복원 프로그램](docs/installer.md)을 필요한 범위에서 연결합니다.
+5. **Validate and play-test the translated game.** [알려진 로케일 오류](docs/locale-crash.md)와 [검증 범위](docs/validation.md)를 읽고 구조 검사와 실제 플레이 확인을 구별합니다.
+
+## Nega0 Translation Documentation
+
+| 필요한 작업 | 문서 / 코드 |
 |---|---|
-| Nega0 unpack, NegaZero extraction, 네가제로 언팩, ネガゼロ 展開 | [언팩 도구](unpack.py), [MIKO/WAG 파일 형식](docs/formats.md) |
-| Nega0 repack, MIKO archive rebuild, WAG repacking, 네가제로 리팩 | [리팩 함수](repack/reinject.py), [입력 연결](docs/repacking.md) |
-| NORI script text extraction, string pool relocation, backlog corruption | [문자열 추출](text_extract.py), [대사 그룹 재배치](repack/reinject.py) |
-| BINF text reinjection, row CRC16, fixed UTF-16 buffer, skill name limit | [타입별 BINF 파서와 재삽입](repack/binf_codec.py) |
-| CP932 Korean patch, private-use mapping, DBCS lead byte, font alignment | [한글 인코딩·폰트 처리](docs/display.md) |
-| PNG ORGN trailer, WAG image replacement, sprite origin | [이미지 보존과 재포장](docs/images-and-screen.md) |
-| NegaZero Korean locale crash, MIKO binary search, CompareStringW collation | [원인 분석과 검색 재현](docs/locale-crash.md) |
+| Nega0 번역 시작과 스크립트 추출 | [Nega0 Translation Guide](docs/nega0-translation-guide.md), [unpack.py](unpack.py), [text_extract.py](text_extract.py) |
+| AI가 먼저 읽을 기술 자료 안내 | [AI_START.md](AI_START.md) |
+| Nega0 script format / archive extraction | [Nega0 파일 형식](docs/formats.md), [formats.py](formats.py) |
+| Nega0 text reinsertion / archive repacking | [재삽입 입력 연결](docs/repacking.md), [reinject.py](repack/reinject.py), [binf_codec.py](repack/binf_codec.py) |
+| Nega0 Korean text / font compatibility | [한글 표시](docs/display.md), [표시 매핑 생성기](repack/prepare_display_mapping.py) |
+| Nega0 Korean patch creation / restore | [배포 프로그램](docs/installer.md), [C# 구현](repack/installer/Engine.cs) |
+| Known issues with Nega0 translation | [한국어 로케일 종료 원인](docs/locale-crash.md), [이미지·화면](docs/images-and-screen.md) |
+| 지원 판본·확인된 결과·남은 검증 | [버전 프로필](docs/version-profile.json), [검증 범위](docs/validation.md) |
 
-**AI에게는 저장소 주소와 함께 [AI_START.md](AI_START.md)를 먼저 읽도록 알려주세요.** 처음부터 파일 형식을 다시 추측하지 않고, 확인된 코드와 실패 사례를 출발점으로 사용할 수 있습니다.
+## Nega0 Translation FAQ
 
-이 저장소에는 게임 본체·원본 리소스·번역 대사·편집 이미지·완성 패치가 들어 있지 않습니다. 소유한 게임과 자신의 번역·이미지 결과를 입력으로 사용합니다. 설치 후 바로 적용하는 완성 패치 프로그램이 아니라 제작용 기술 키트입니다.
+### 네가제로 한글패치를 만들고 싶은데 이 자료를 쓸 수 있나요?
 
-## 먼저 읽을 자료
+네. Nega0 번역에 필요한 스크립트 추출과 번역 적용, 한글 표시, 패치 적용·원본 복원 구현을 참고할 수 있습니다. 소유한 게임 데이터와 자신의 번역 결과가 필요하며, 사용하는 번역 절차는 이 저장소가 지정하지 않습니다.
 
-| 작업 | 문서 / 코드 |
-|---|---|
-| AI 작업 시작, 확인 순서와 금지할 추측 | [AI_START.md](AI_START.md) |
-| 언팩 결과를 자신의 리팩 도구에 연결 | [언팩·리팩 연결](docs/repacking.md) |
-| 파일 형식, 바이트·CRC·원위치 | [파일 형식](docs/formats.md), [formats.py](formats.py), [reinject.py](repack/reinject.py), [binf_codec.py](repack/binf_codec.py) |
-| 한글 인코딩·폰트·줄 간격 | [한글 표시](docs/display.md), [표시 매핑 생성기](repack/prepare_display_mapping.py) |
-| 한국어 환경의 특정 장면 종료 | [로케일 오류 분석](docs/locale-crash.md), [검색 재현 도구](repack/verify_archive_locale.py) |
-| 이미지·ORGN·전투 조각 겹침 | [이미지와 화면](docs/images-and-screen.md) |
-| 설치 폴더 선택·적용·복원·델타 | [배포 프로그램](docs/installer.md), [C# 구현](repack/installer/Engine.cs) |
-| 확인된 사실과 남은 검증 | [검증 범위](docs/validation.md), [버전 프로필](docs/version-profile.json) |
+### How do I extract Nega0 scripts?
 
-## 빠른 시작
+Use [unpack.py](unpack.py) with `--sample` first. It records archive entry locations and extracts candidate Japanese text from NORI scenario scripts and supported BINF tables. See the [Nega0 script extraction guide](docs/nega0-translation-guide.md) for outputs, source hashes and review limits. The parser is not a complete specification of every script instruction.
+
+### Can I use this repository to translate Nega0 into another language?
+
+The Nega0 archive and script references can inform other translation projects. The display mapping, font runtime and observed gameplay results concern Korean text. Compatibility with other languages must be checked separately; the code is not advertised as a general visual novel translation framework.
+
+### Is this a finished Nega0 Korean patch?
+
+No. This is a source and documentation kit for making a Nega0 translation patch. Existing extraction, reinsertion, packaging checks and a user-confirmed Korean-locale scene are documented in [validation.md](docs/validation.md). All routes, scenes and environments have not been play-tested.
+
+### Can GARbro alone make a Nega0 translation patch?
+
+This kit credits GARbro archive algorithms in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Archive extraction alone does not rebuild translated NORI/BINF text, update pointers and CRCs, or provide Korean text rendering. The Nega0-specific reinsertion and display documentation covers those additional requirements.
+
+## Extracting Nega0 Scenario Scripts · 네가제로 스크립트 추출
 
 Python 3.10 이상에서 저장소 루트를 작업 폴더로 사용합니다. 전체 추출에는 디스크 공간이 많이 필요합니다. 먼저 작은 표본을 확인하세요.
 
@@ -59,7 +75,7 @@ python unpack.py --full --game "D:\Games\Nega 0" --output "D:\Nega0Work\unpacked
 
 `unpack.py`가 만드는 `translation_input.jsonl`과 `text_inventory.jsonl`은 서로 용도가 다릅니다. 전자는 번역 후보, 후자는 제외 문자열과 내부 키도 포함하는 검토용 목록입니다. 사용하는 번역 방식은 자유롭게 선택할 수 있습니다. 재삽입할 때에는 추출 원위치의 ID·원본 바이트·해시와 변경 문자열의 연결을 유지하세요.
 
-## 기준과 현재 상태
+## Nega0 Translation Status · 확인된 범위와 남은 검증
 
 - 원본 **NegaZero.exe 1.0.1.0**, x86 PE32, SHA-256 `e51c64bbd3b0584b15d8bb11cad4ea1c107d43b24fda7a2171d49bde9a86dfa1` 기준입니다. 다른 파일에 실행파일 주소를 그대로 적용하지 마세요.
 - 이 키트는 **2026-10-05, 파일명 정렬 수정이 포함된 기술 소스**를 정리한 자료입니다. 공개용으로 매핑 입력·출력 경로와 의존성을 분리했습니다.
