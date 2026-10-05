@@ -1,6 +1,6 @@
 # Third-party notices
 
-`formats.py` and the WAG/MIKO format work in `cp3/reinject.py` use algorithms and format information from GARbro's Xuse handlers:
+`formats.py` and the WAG/MIKO format work in `repack/reinject.py` use algorithms and format information from GARbro's Xuse handlers:
 
 - [ArcXuse.cs](https://github.com/morkt/GARbro/blob/master/ArcFormats/Xuse/ArcXuse.cs)
 - [ArcWAG.cs](https://github.com/morkt/GARbro/blob/master/ArcFormats/Xuse/ArcWAG.cs)
@@ -55,4 +55,4 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 ```
 
-Noto Sans KR is a separate SIL Open Font License font; acquisition metadata is in `cp3/native/font_source.json`. No font binaries are included. Pillow, pefile and optional NumPy are external dependencies and retain their own licenses. Windows SDK/MSVC/MSDelta are not redistributed. The MIT license of this repository does not grant rights to game assets.
+Noto Sans KR is a separate SIL Open Font License font; acquisition metadata is in `repack/native/font_source.json`. No font binaries are included. Pillow, pefile and optional NumPy are external dependencies and retain their own licenses. Windows SDK/MSVC/MSDelta are not redistributed. The MIT license of this repository does not grant rights to game assets.

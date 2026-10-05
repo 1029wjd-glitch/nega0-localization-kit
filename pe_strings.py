@@ -1,4 +1,4 @@
-"""Read-only PE string candidates. Candidates are not automatically CP2 input."""
+"""Read-only PE string candidates. Candidates require a display-scope review before translation."""
 import re
 import struct
 from text_extract import FULL_JP, readable

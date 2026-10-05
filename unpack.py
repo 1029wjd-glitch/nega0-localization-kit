@@ -395,7 +395,7 @@ class Extractor:
         report = {"game": "Nega0", "source_root": str(self.game), "mode": "sample" if self.sample else "full",
                   "full_extraction_completed": not self.sample and not self.errors,
                   "unpack_completed": not self.sample and not self.errors,
-                  "cp2_ready": False, "cp2_ready_reason": "Image Japanese/OCR and unknown display opcodes require scope review; unpack success is separate from CP2 readiness.",
+                  "review_required": True, "review_reason": "Image Japanese/OCR and unknown display opcodes require scope review; unpack success is separate from translation-scope review.",
                   "selected_top_level_entries": self.selected_count, "extracted_entries_including_nested": self.raw_count,
                   "top_level_success": self.top_success, "top_level_failed": self.top_failed,
                   "native_resource_entries": self.native_resource_count,
@@ -414,7 +414,7 @@ class Extractor:
                   "ocr_performed": False, "game_launch_performed": False,
                   "reinsertion_implemented": False}
         dump(self.output/"source_manifest.json", {"source_root": str(self.game), "files": self.sources})
-        dump(self.output/"cp1_report.json", report)
+        dump(self.output/"unpack_report.json", report)
         gallery(self.output, self.images)
         print(json.dumps({"mode": report["mode"], "entries": self.raw_count,
                           "images": len(self.images), "texts": self.text_count,
@@ -431,7 +431,7 @@ def main():
     parser.add_argument("--game", type=Path, default=DEFAULT_GAME)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    output = args.output or ROOT/("samples" if args.sample else "cp1")
+    output = args.output or ROOT/("samples" if args.sample else "unpacked")
     try:
         report = Extractor(args.game, output, args.sample).run()
     except Exception as exc:
