@@ -1,0 +1,159 @@
+{
+  "snapshot": "Technical source with archive collation fix, 2026-10-05",
+  "files": [
+    {
+      "path": "formats.py",
+      "origin_sha256": "cbd6b338cd790b600b8cfa155dc3f01dd817bb34c06adfa299de4143ed3b40fd",
+      "export_sha256": "c1ab38eaf7a487255c0ba22a624e15b91592671231beb26c01a5d0e11b6c9d6b",
+      "adapted": true,
+      "origin_file": "formats.py"
+    },
+    {
+      "path": "text_extract.py",
+      "origin_sha256": "1259b68484914f4cb11239ea1083d229086a24104f534ac21e65a1c8fc497347",
+      "export_sha256": "1259b68484914f4cb11239ea1083d229086a24104f534ac21e65a1c8fc497347",
+      "adapted": false,
+      "origin_file": "text_extract.py"
+    },
+    {
+      "path": "pe_strings.py",
+      "origin_sha256": "644b76617a4ce67a23bb29f31ce3366a28c42a2eba270f3f4ce36ba661f696c0",
+      "export_sha256": "2e2121926b34c4cfef40c21b4cfcc6b8661af8344b8e00bfad1233dc5a1fae20",
+      "adapted": true,
+      "origin_file": "pe_strings.py"
+    },
+    {
+      "path": "unpack.py",
+      "origin_sha256": "6f8d92984174afc6df29eaf61a1646866f90cfd417e573600379fc5fe7c89f8b",
+      "export_sha256": "1b586c60035566bf0f990f44c6fde30b486ae493baa7329a1e42bec446faa6ec",
+      "adapted": true,
+      "origin_file": "unpack.py"
+    },
+    {
+      "path": "repack/reinject.py",
+      "origin_sha256": "5c3e0a434dbb63fa9b6bacc3719a5ad722d4023ffb8383a0854f8313075d0516",
+      "export_sha256": "5c3e0a434dbb63fa9b6bacc3719a5ad722d4023ffb8383a0854f8313075d0516",
+      "adapted": false,
+      "origin_file": "reinject.py"
+    },
+    {
+      "path": "repack/binf_codec.py",
+      "origin_sha256": "e4b1aba8b4b1c4693fa89fa5ec934eed7c9175784956d5c1fa8a7970aadcdf49",
+      "export_sha256": "e4b1aba8b4b1c4693fa89fa5ec934eed7c9175784956d5c1fa8a7970aadcdf49",
+      "adapted": false,
+      "origin_file": "binf_codec.py"
+    },
+    {
+      "path": "repack/display_codec.py",
+      "origin_sha256": "f045eb343a73a1944788b2f5c40ac366f51218c45431f163fe60d19eed1111c4",
+      "export_sha256": "e2449ed6c79ee31e3781e448bc7cc9e1ae5b95cb9ac403cf2817386cba2db328",
+      "adapted": true,
+      "origin_file": "display_codec.py"
+    },
+    {
+      "path": "repack/patch_executable.py",
+      "origin_sha256": "9e708452173670375b648e007f233475148567b2af8464c7d6b839a7ce180a0a",
+      "export_sha256": "1ab9a50bcd579a9e4d54ca615a86eff1a2266b6bf3441b8498943d56da3c9a5b",
+      "adapted": true,
+      "origin_file": "patch_executable.py"
+    },
+    {
+      "path": "repack/adjust_text_position.py",
+      "origin_sha256": "935a86369890e68e59a5609bd28c6337dbe0f6e46cdf5c4e78db463ec0a29ade",
+      "export_sha256": "29954cd28533afb75d445db73012db78b542f718dc880fbd34dbc99570c070ce",
+      "adapted": true,
+      "origin_file": "adjust_text_position.py"
+    },
+    {
+      "path": "repack/msdelta.py",
+      "origin_sha256": "2d0a59d476434c001724bd76e66b8794bebf61cc0827f9e835ab83da551c7956",
+      "export_sha256": "2d0a59d476434c001724bd76e66b8794bebf61cc0827f9e835ab83da551c7956",
+      "adapted": false,
+      "origin_file": "msdelta.py"
+    },
+    {
+      "path": "repack/native/korean.c",
+      "origin_sha256": "f019628327f224f7794dbbc60e12f92fd4294eec87e9255d0cbad716a4fcd2d8",
+      "export_sha256": "dbbfbca9c4a52811b422949441e68a37e369242a6a6cf790a7a14d37adcb81f5",
+      "adapted": true,
+      "origin_file": "korean.c"
+    },
+    {
+      "path": "repack/native/fullscreen.c",
+      "origin_sha256": "7f7e2e07094edc3eaf6828841d844b61ba535cff8fc73d8f483ed23f7a236431",
+      "export_sha256": "7f7e2e07094edc3eaf6828841d844b61ba535cff8fc73d8f483ed23f7a236431",
+      "adapted": false,
+      "origin_file": "fullscreen.c"
+    },
+    {
+      "path": "repack/native/korean.def",
+      "origin_sha256": "8c018b6d40e66aa91008a2ebd335146afdede59cf9c1f726807a6f42b82e782e",
+      "export_sha256": "8c018b6d40e66aa91008a2ebd335146afdede59cf9c1f726807a6f42b82e782e",
+      "adapted": false,
+      "origin_file": "korean.def"
+    },
+    {
+      "path": "repack/native/local_assets.h",
+      "origin_sha256": "7fa002ac0079f3f2698d68b0d21d49cc1f925ef376ec0f6baae99f180e55f30d",
+      "export_sha256": "28ed7c765622015724a62581c4722839aec449ec7b995f4283bbf4eca997f2d1",
+      "adapted": true,
+      "origin_file": "local_assets.h"
+    },
+    {
+      "path": "repack/native/test_fullscreen.c",
+      "origin_sha256": "76d427010c440d29539b159702c183e90d25878a095baf56a54bdf2c6da8aef8",
+      "export_sha256": "76d427010c440d29539b159702c183e90d25878a095baf56a54bdf2c6da8aef8",
+      "adapted": false,
+      "origin_file": "test_fullscreen.c"
+    },
+    {
+      "path": "repack/native/fullscreen_mock.h",
+      "origin_sha256": "e12ecba3f4a1af0c9238b819dab10b732388db869baeb92a0ea3784895fdcfea",
+      "export_sha256": "e12ecba3f4a1af0c9238b819dab10b732388db869baeb92a0ea3784895fdcfea",
+      "adapted": false,
+      "origin_file": "fullscreen_mock.h"
+    },
+    {
+      "path": "repack/native/font_source.json",
+      "origin_sha256": "679966cb70f54e16f11be0b3c72cd4ff721253a3427843f1785ccffe1f27b27d",
+      "export_sha256": "6a0ee2239da2747f548f5adee84d721e5d2d292c1d85064e8633c145569624cb",
+      "adapted": true,
+      "origin_file": "font_source.json"
+    },
+    {
+      "path": "repack/installer/Engine.cs",
+      "origin_sha256": "c69422bbf602c4d311fac310a7345fb5e3134f52ca5e5afe8f86c1623b0ff18a",
+      "export_sha256": "c69422bbf602c4d311fac310a7345fb5e3134f52ca5e5afe8f86c1623b0ff18a",
+      "adapted": false,
+      "origin_file": "Engine.cs"
+    },
+    {
+      "path": "repack/installer/App.cs",
+      "origin_sha256": "baa7309480b32d240d09f38fbff53a8ab5e335e7a2fc59f1483687b3e25b1874",
+      "export_sha256": "baa7309480b32d240d09f38fbff53a8ab5e335e7a2fc59f1483687b3e25b1874",
+      "adapted": false,
+      "origin_file": "App.cs"
+    },
+    {
+      "path": "repack/installer/TestDriver.cs",
+      "origin_sha256": "279bdf6e82ae7551df7fb9d3258c9161ddd2fca5a9a179cdc1168ca87ad9754e",
+      "export_sha256": "279bdf6e82ae7551df7fb9d3258c9161ddd2fca5a9a179cdc1168ca87ad9754e",
+      "adapted": false,
+      "origin_file": "TestDriver.cs"
+    },
+    {
+      "path": "repack/installer/app.manifest",
+      "origin_sha256": "8e7c34ca39679afaa17ca7e01c0dbb9da2dfc91937a7bedf29d01d55a175461f",
+      "export_sha256": "8e7c34ca39679afaa17ca7e01c0dbb9da2dfc91937a7bedf29d01d55a175461f",
+      "adapted": false,
+      "origin_file": "app.manifest"
+    },
+    {
+      "path": "repack/installer/build.ps1",
+      "origin_sha256": "8658acafdf7870a04a3178e4160c5b888564d9a544256e4125e9a152adbaeee1",
+      "export_sha256": "6d850354a9282e6c1374a12ada284ea4c7d845e4ad02322c6fd8dc413f20edd7",
+      "adapted": true,
+      "origin_file": "build.ps1"
+    }
+  ]
+}

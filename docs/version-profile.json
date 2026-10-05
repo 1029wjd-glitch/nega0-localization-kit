@@ -1,0 +1,28 @@
+{
+  "game": "Nega0 / NegaZero",
+  "profile_version": 1,
+  "source_version": "1.0.1.0",
+  "architecture": "x86 PE32 fixed-base",
+  "image_base": "0x400000",
+  "technical_snapshot": "archive-collation-fix",
+  "snapshot_date": "2026-10-05",
+  "problem_scene_gameplay": "user_confirmed_pass_2026-10-05",
+  "originals": {
+    "NegaZero.exe": {"size": 3850240, "sha256": "e51c64bbd3b0584b15d8bb11cad4ea1c107d43b24fda7a2171d49bde9a86dfa1"},
+    "NegaZero.dll": {"sha256": "f5b5f82df912250a512325c98fd43169c55a0ceebcee1927a56092d1ae217855"},
+    "Data/skin.bin": {"size": 31403, "sha256": "7fcb933dd6b1bdb71638d2e3d3db94620f695495832b8dda823f81ab4e06ad65"}
+  },
+  "archive_search_locale_patch": {
+    "push_va": "0x4170ed",
+    "compare_call_va": "0x4170f2",
+    "original_11_bytes_hex": "6800080000ff153c316700",
+    "patched_11_bytes_hex": "6811040000ff153c316700",
+    "old_lcid": "0x800",
+    "new_lcid": "0x411",
+    "scope": "only MIKO NDIX binary-search collation"
+  },
+  "historical_search_test": {
+    "Data/ef.arc": {"entries": 188, "japanese_failures": 0, "korean_failures": 4},
+    "Data/besg.arc": {"entries": 15181, "japanese_failures": 0, "korean_failures": 311}
+  }
+}
