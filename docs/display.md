@@ -1,4 +1,4 @@
-# 한글 표시: 저장 bytes와 화면 글리프를 분리하기
+# Nega0 Korean Text and Fonts · 한글 인코딩과 화면 표시
 
 ## CP932 사설 영역 매핑
 

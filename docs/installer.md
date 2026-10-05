@@ -1,4 +1,4 @@
-# 적용·복원 프로그램과 델타
+# Nega0 Korean Patch Creation · 적용·복원 프로그램과 델타
 
 사용자는 설치된 게임 폴더를 선택해 한글패치 적용 또는 원본 복원을 수행한다. `repack/installer`는 C# .NET Framework 4의 x86 WinForms 구현이다. 게임 설치기·공식 업데이트·번역 결과 생성기는 포함하지 않는다.
 

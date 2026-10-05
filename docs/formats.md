@@ -1,4 +1,4 @@
-# 파일 형식: 구현을 읽기 위한 지도
+# Nega0 Script and Archive Formats · 네가제로 파일 형식
 
 확인한 Nega0 1.0.1.0 자료의 구조다. 아래 내용은 모든 Xuse 게임의 규격을 주장하지 않는다. 숫자 오프셋은 달리 표시하지 않으면 파일 내부 상대 위치다. 재주입의 권위 있는 구현은 `repack/reinject.py`, `repack/binf_codec.py`다.
 

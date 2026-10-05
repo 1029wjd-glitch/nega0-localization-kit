@@ -1,4 +1,4 @@
-# 이미지·대사창·전투 조각·전체화면
+# Nega0 Translation Images and Layout · 이미지·대사창·전투 화면
 
 ## PNG와 ORGN
 

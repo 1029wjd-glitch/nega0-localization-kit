@@ -1,4 +1,4 @@
-# 검증 근거와 남은 확인
+# Nega0 Translation Validation · 확인된 결과와 남은 검증
 
 ## 과거 제작에서 확인한 것
 
