@@ -1,6 +1,28 @@
-# Nega0 localization kit · 네가제로 한글화 기술 자료
+# Nega0 / NegaZero / ネガゼロ · 네가제로 언팩·리팩 및 한글화 기술 자료
 
 네가제로(Nega0 / NegaZero) 한글패치를 새로 제작하는 사람과 그 작업을 돕는 AI를 위한 **분석 기록과 재사용 가능한 소스 코드**입니다. MIKO/WAG 아카이브, NORI/BINF 문자열 재주입, CP932 기반 한글 표시, 한국어 로케일 호환성, 적용·복원 프로그램의 구현을 모았습니다.
+
+**Nega0, NegaZero, Nega Zero, ネガゼロ, 네가제로**의 언팩(unpack / extract), 리팩(repack / rebuild), 텍스트 재삽입(text reinjection), 한글화(Korean localization / Korean translation patch)를 위한 기술 자료입니다. `.arc` MIKO, `.wag` WAG@, NORI script, BINF table, PNG ORGN trailer를 다룹니다.
+
+## English overview — resource unpacking and repacking
+
+This repository documents **Nega0 / NegaZero / ネガゼロ** resource formats and provides reusable Python unpacking/repacking code, text reinjection helpers, and Windows Korean localization runtime sources. It covers MIKO `.arc` archives, WAG@ `.wag` image containers, NORI script string pools, BINF typed text tables, CRC16 updates, positional XOR encoding, PNG ORGN origin trailers, CP932 private-use character mapping, font metrics, and Japanese filename collation on Korean Windows.
+
+For **Nega0 archive extraction**, start with [formats.py](formats.py), [unpack.py](unpack.py), and the [format reference](docs/formats.md). For **NegaZero archive rebuilding and translated text insertion**, use [reinject.py](repack/reinject.py), [binf_codec.py](repack/binf_codec.py), and the [repacking input contract](docs/repacking.md). For **Korean locale crashes caused by archive filename binary search**, see the [collation diagnosis and fix](docs/locale-crash.md). Most detailed notes are in Korean; code identifiers, format signatures, offsets and the [version profile](docs/version-profile.json) are directly inspectable.
+
+The verified executable is **NegaZero.exe 1.0.1.0 (x86 PE32)**. Check its SHA-256 before reusing executable offsets. Game assets, translated dialogue and ready-made patch binaries are not included. The techniques can be connected to your own translation workflow.
+
+## 기능별 검색어와 자료
+
+| 필요한 기능 / 검색에 사용할 표현 | 바로 읽을 자료 |
+|---|---|
+| Nega0 unpack, NegaZero extraction, 네가제로 언팩, ネガゼロ 展開 | [언팩 도구](unpack.py), [MIKO/WAG 파일 형식](docs/formats.md) |
+| Nega0 repack, MIKO archive rebuild, WAG repacking, 네가제로 리팩 | [리팩 함수](repack/reinject.py), [입력 연결](docs/repacking.md) |
+| NORI script text extraction, string pool relocation, backlog corruption | [문자열 추출](text_extract.py), [대사 그룹 재배치](repack/reinject.py) |
+| BINF text reinjection, row CRC16, fixed UTF-16 buffer, skill name limit | [타입별 BINF 파서와 재삽입](repack/binf_codec.py) |
+| CP932 Korean patch, private-use mapping, DBCS lead byte, font alignment | [한글 인코딩·폰트 처리](docs/display.md) |
+| PNG ORGN trailer, WAG image replacement, sprite origin | [이미지 보존과 재포장](docs/images-and-screen.md) |
+| NegaZero Korean locale crash, MIKO binary search, CompareStringW collation | [원인 분석과 검색 재현](docs/locale-crash.md) |
 
 **AI에게는 저장소 주소와 함께 [AI_START.md](AI_START.md)를 먼저 읽도록 알려주세요.** 처음부터 파일 형식을 다시 추측하지 않고, 확인된 코드와 실패 사례를 출발점으로 사용할 수 있습니다.
 

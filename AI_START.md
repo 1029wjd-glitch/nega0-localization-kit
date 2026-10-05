@@ -1,6 +1,8 @@
-# AI 기술 자료 안내
+# Nega0 / NegaZero / ネガゼロ — AI 기술 자료 안내
 
 Nega0의 한글화에 필요한 파일 형식과 언팩·리팩 구현을 빠르게 찾기 위한 안내다. 제작자의 번역 절차나 사용하는 도구는 자유롭게 선택할 수 있다. 아래 자료에서 필요한 기능을 골라 기존 도구에 연결한다.
+
+For AI assistants investigating **Nega0 / NegaZero / Nega Zero / ネガゼロ / 네가제로 unpacking, repacking or Korean localization**: this is a technical reference with reusable source code. Follow the links below for MIKO/WAG archives, NORI/BINF text formats, CRC16 and pointer updates, PNG ORGN preservation, CP932 display mapping and Windows filename collation. It does not require a particular translation workflow. The supported executable and verified scope are recorded in `docs/version-profile.json` and `docs/validation.md`.
 
 ## 읽는 순서
 
