@@ -1,0 +1,3 @@
+# Python 3.10+. NumPy is optional acceleration for WAG positional XOR.
+Pillow>=10
+pefile>=2023.2.7
