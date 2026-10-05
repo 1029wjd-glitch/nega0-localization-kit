@@ -1,0 +1,14 @@
+LIBRARY Nega0Korean
+EXPORTS
+    NegaIsDBCSLeadByte=_NegaIsDBCSLeadByte@4
+    NegaLoadEsoTexture
+    NegaMultiByteToWideChar=_NegaMultiByteToWideChar@24
+    NegaCreateFontW=_NegaCreateFontW@56
+    NegaGetCharABCWidthsW=_NegaGetCharABCWidthsW@16
+    NegaWideCharToMultiByte=_NegaWideCharToMultiByte@32
+    NegaOutputDebugStringW=_NegaOutputDebugStringW@4
+    NegaFindLocalGameDisc
+    NegaResolveLocalInstallation=_NegaResolveLocalInstallation@12
+    NegaDirect3DCreate9=_NegaDirect3DCreate9@4
+    NegaScreenToClient=_NegaScreenToClient@8
+    NegaClientToScreen=_NegaClientToScreen@8
